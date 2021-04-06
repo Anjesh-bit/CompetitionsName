@@ -1,0 +1,7 @@
+{
+  "name": "Competition",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
