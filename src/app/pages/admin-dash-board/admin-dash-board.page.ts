@@ -35,7 +35,7 @@ export class AdminDashBoardPage implements OnInit {
       ).subscribe((res) => {
         this.Zone.run(() => {
           this.DashBoardCredentials.reset();
-          this.Router.navigate(['/dashboard-inside']);
+          this.Router.navigate(['dashboard-inside']);
         });
       });
     }
