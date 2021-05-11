@@ -9,17 +9,24 @@ import { AddCompetitionServicesService } from 'src/app/services/add-competition-
 })
 export class DashboardInsidePage implements OnInit {
   Users: any = [];
+  competitionData = [];
   i: any;
   constructor(
     private CompetitionDash: AddCompetitionServicesService,
     private Router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.Title();
+  }
 
   Title() {
     this.CompetitionDash.getUsersCompetition().subscribe((response) => {
+      console.log(response);
       this.Users = response;
+
+      this.competitionData = this.Users.result;
+      console.log(this.Users.result);
     });
   }
 
