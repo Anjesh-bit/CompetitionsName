@@ -1,0 +1,16 @@
+:root {
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 22px;
+}
+ion-card {
+  height: 475px;
+}
+ion-header {
+  width: 100%;
+  margin-top: 70px;
+}
+.logout {
+  margin-left: 32px;
+  --border-radius: 20px;
+  border-color: #2dd36f;
+}

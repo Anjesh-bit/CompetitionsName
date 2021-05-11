@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Adminlogin</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let user of Users">
+      <ion-label class="label">
+        <ion-button color="success" (click)=Title()>Title</ion-button>
+        <h2>{{user.name}}</h2>
+        <h3>{{user.email}}</h3>
+        <h3>{{user.username}}</h3>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <ion-button color="success" [routerLink]="['/update/', user._id]">
+          <ion-icon name="create" style="zoom:1.5"></ion-icon>
+        </ion-button>
+        <ion-button color="success" (click)="removeUser(user,i)">
+          <ion-icon name="trash" style="zoom:1.5"></ion-icon>
+        </ion-button>
+
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

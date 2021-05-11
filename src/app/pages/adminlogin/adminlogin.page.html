@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Adminlogin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="credentialsofForm" (ngSubmit)="login()">
+
+    <ion-item>
+      <ion-label color="success" position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="success" position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-button fill="outline" type="submit" [disabled]="!credentialsofForm.valid">
+      Login
+    </ion-button>
+
+  </form>
+</ion-content>

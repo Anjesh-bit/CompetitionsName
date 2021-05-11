@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Admin-DashBoard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="DashBoardCredentials" (ngSubmit)="AddCompetition()">
+
+    <ion-item>
+
+
+      <ion-label color="success" position="floating">Title
+      </ion-label>
+      <ion-input type="text" formControlName="Title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="success" position="floating">
+        Description</ion-label>
+      <ion-textarea clearOnEdit="true" formControlName="Description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label color="success" position="floating">Author
+        Name</ion-label>
+      <ion-input type="text" formControlName="AuthorName"></ion-input>
+    </ion-item>
+
+    <ion-button fill="outline" type="submit" [disabled]="!DashBoardCredentials.valid">
+      ADD COMPETITIONS
+    </ion-button>
+
+  </form>
+
+
+</ion-content>
+
+
+<!---this is ectras-->
