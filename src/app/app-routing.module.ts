@@ -12,14 +12,13 @@ import {
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: '/buttons',
     pathMatch: 'full',
   },
   {
     path: 'buttons',
     loadChildren: () =>
       import('./buttons/buttons.module').then((m) => m.ButtonsPageModule),
-    canActivate: [CompetitionAuthguardService],
   },
   {
     path: 'login',
@@ -54,6 +53,14 @@ const routes: Routes = [
       import('./pages/dashboard-inside/dashboard-inside.module').then(
         (m) => m.DashboardInsidePageModule
       ),
+  },
+  {
+    path: 'buttons-afterlogin',
+    loadChildren: () =>
+      import('./buttons-afterlogin/buttons-afterlogin.module').then(
+        (m) => m.ButtonsAfterloginPageModule
+      ),
+    canActivate: [CompetitionAuthguardService],
   },
 ];
 

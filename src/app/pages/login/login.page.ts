@@ -3,6 +3,11 @@ import { CompetitionAuthService } from './../../services/competition-auth.servic
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { Platform } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -14,8 +19,13 @@ export class LoginPage implements OnInit {
   constructor(
     private FormBuild: FormBuilder,
     private CompeteAuth: CompetitionAuthService,
-    private Router: Router
-  ) {}
+    private Router: Router,
+    private platf: Platform,
+    private splashscreen: SplashScreen,
+    private statusBar: StatusBar
+  ) {
+    this.CompetitionApp();
+  }
 
   ngOnInit() {
     this.credentialsofForm = this.FormBuild.group({
@@ -24,13 +34,18 @@ export class LoginPage implements OnInit {
     });
   }
 
+  CompetitionApp() {
+    this.CompeteAuth.authenticationState.subscribe((state) => {
+      if (state) {
+        this.Router.navigate(['buttons-afterlogin']);
+        console.log(state);
+      } else {
+        this.Router.navigate(['login']);
+      }
+    });
+  }
+
   Click() {
     this.CompeteAuth.login(this.credentialsofForm.value).subscribe();
-  }
-  adminlogin() {
-    this.Router.navigate(['adminlogin']);
-  }
-  register() {
-    this.Router.navigate(['register']);
   }
 }

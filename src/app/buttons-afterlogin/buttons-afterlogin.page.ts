@@ -1,6 +1,7 @@
-import { CompetitionAuthService } from '../services/competition-auth.service';
-import { ModelComponent } from '../model/model.component';
 import { Component, OnInit } from '@angular/core';
+
+import { ModelComponent } from './../model/model.component';
+
 import { ModalController } from '@ionic/angular';
 
 import {
@@ -8,15 +9,18 @@ import {
   InAppBrowserOptions,
 } from '@ionic-native/in-app-browser/ngx';
 
+import { CompetitionAuthService } from '../services/competition-auth.service';
+
 @Component({
-  selector: 'app-buttons',
-  templateUrl: './buttons.page.html',
-  styleUrls: ['./buttons.page.scss'],
+  selector: 'app-buttons-afterlogin',
+  templateUrl: './buttons-afterlogin.page.html',
+  styleUrls: ['./buttons-afterlogin.page.scss'],
 })
-export class ButtonsPage implements OnInit {
+export class ButtonsAfterloginPage implements OnInit {
   constructor(
     private modelctrl: ModalController,
-    private Inapp: InAppBrowser
+    private Inapp: InAppBrowser,
+    private CompeteAuth: CompetitionAuthService
   ) {}
 
   ngOnInit() {}
@@ -80,5 +84,8 @@ export class ButtonsPage implements OnInit {
       options
     );
     home.show();
+  }
+  logout() {
+    this.CompeteAuth.logout();
   }
 }

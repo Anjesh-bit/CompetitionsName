@@ -1,11 +1,14 @@
-<ion-toolbar>
-  <ion-buttons slot="start">
-    <ion-menu-button></ion-menu-button>
-  </ion-buttons>
-  <ion-title>Inbox</ion-title>
-  <img alt="logo" src="assets/icon/download.svg">
-</ion-toolbar>
+<ion-header class="ion-no-border">
 
+
+  <ion-title>
+
+    <img alt="logo" src="assets/icon/download.svg">
+  </ion-title>
+  <ion-buttons slot="start"></ion-buttons>
+  <ion-menu-button menu="competitionsMenu"></ion-menu-button>
+
+</ion-header>
 
 <ion-content fullscreen>
 
@@ -27,6 +30,7 @@
       <br>
 
       <ion-button fill="clear" (click)="Desktop()">Go Desktop</ion-button><br>
+      <ion-button class="logout" fill="outline" (click)="logout()">Logout</ion-button>
 
 
     </ion-card-content>

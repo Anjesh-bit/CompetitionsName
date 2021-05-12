@@ -26,7 +26,10 @@ export class RegisterPage implements OnInit {
     });
   }
   register() {
-    this.CompeteAuth.register(this.credentialsofForm1.value).subscribe();
-    this.Router.navigate(['login']);
+    this.CompeteAuth.register(this.credentialsofForm1.value).subscribe(
+      (res) => {
+        this.Router.navigate(['login']);
+      }
+    );
   }
 }
