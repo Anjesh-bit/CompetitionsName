@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, NgZone } from '@angular/core';
+import {MenuController} from '@ionic/angular';
 
 @Component({
   selector: 'app-admin-dash-board',
@@ -15,6 +16,7 @@ export class AdminDashBoardPage implements OnInit {
   constructor(
     public CompeteAuth: AddCompetitionServicesService,
     private FormBuild: FormBuilder,
+    private menu: MenuController,
     private Router: Router,
     private Zone: NgZone
   ) {}
@@ -35,7 +37,7 @@ export class AdminDashBoardPage implements OnInit {
       ).subscribe((res) => {
         this.Zone.run(() => {
           this.DashBoardCredentials.reset();
-          this.Router.navigate(['/dashboard-inside']);
+          this.Router.navigate(['dashboard-inside', {item: res}]);
         });
       });
     }
@@ -43,7 +45,8 @@ export class AdminDashBoardPage implements OnInit {
 
     changeNav(nav){
         if(nav === 'list'){
-            this.Router.navigate(['/dashboard-inside']);
+            this.menu.close('first');
+            this.Router.navigate(['dashboard-inside']);
         }
     }
 }

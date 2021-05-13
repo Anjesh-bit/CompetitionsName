@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import { AddCompetitionServicesService } from 'src/app/services/add-competition-services.service';
+import {MenuController} from '@ionic/angular';
 
 @Component({
   selector: 'app-dashboard-inside',
@@ -13,6 +14,7 @@ export class DashboardInsidePage implements OnInit {
   i: any;
   constructor(
     private CompetitionDash: AddCompetitionServicesService,
+    private menu: MenuController,
     private Router: Router
   ) {}
 
@@ -22,7 +24,6 @@ export class DashboardInsidePage implements OnInit {
 
   Title() {
     this.CompetitionDash.getUsersCompetition().subscribe((response) => {
-      console.log(response);
       this.Users = response;
 
       this.competitionData = this.Users.result;
@@ -41,6 +42,7 @@ export class DashboardInsidePage implements OnInit {
 
     changeNav(nav){
     if(nav === 'add'){
+        this.menu.close('second');
         this.Router.navigate(['/admin-dash-board']);
     }
     }

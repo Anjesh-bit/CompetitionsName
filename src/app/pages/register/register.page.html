@@ -1,10 +1,14 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-card>
+  <ion-card-content>
   <form [formGroup]="credentialsofForm1" (ngSubmit)="register()">
 
     <ion-item>
@@ -30,4 +34,5 @@
     </ion-button>
   </form>
 
-</ion-content>
+  </ion-card-content>
+</ion-card>

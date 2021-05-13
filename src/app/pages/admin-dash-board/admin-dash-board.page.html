@@ -1,8 +1,8 @@
 
-<ion-menu side="start" content-id="main-content">
+<ion-menu side="start" menuId="first" content-id="main-content">
   <ion-header>
     <ion-toolbar translucent>
-      <ion-title>Menu</ion-title>
+      <ion-title>Dashboard</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -25,42 +25,41 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Dashboard</ion-title>
+      <ion-title>Add Competitions</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="DashBoardCredentials" (ngSubmit)="AddCompetition()">
 
-    <form [formGroup]="DashBoardCredentials" (ngSubmit)="AddCompetition()">
-
-      <ion-item>
-
-
-        <ion-label color="success" position="floating">Title
-        </ion-label>
-        <ion-input type="text" formControlName="Title"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label color="success" position="floating">
-          Description</ion-label>
-        <ion-textarea clearOnEdit="true" formControlName="Description"></ion-textarea>
-      </ion-item>
-
-      <ion-item>
-
-        <ion-label color="success" position="floating">Author
-          Name</ion-label>
-        <ion-input type="text" formControlName="AuthorName"></ion-input>
-      </ion-item>
-
-      <ion-button fill="outline" type="submit" [disabled]="!DashBoardCredentials.valid">
-        ADD COMPETITIONS
-      </ion-button>
-
-    </form>
+        <ion-item>
 
 
-  </ion-content>
+          <ion-label color="success" position="floating">Title
+          </ion-label>
+          <ion-input type="text" formControlName="Title"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="success" position="floating">
+            Description</ion-label>
+          <ion-textarea clearOnEdit="true" formControlName="Description"></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+
+          <ion-label color="success" position="floating">Author
+            Name</ion-label>
+          <ion-input type="text" formControlName="AuthorName"></ion-input>
+        </ion-item>
+
+        <ion-button fill="outline" type="submit" [disabled]="!DashBoardCredentials.valid">
+          ADD COMPETITIONS
+        </ion-button>
+
+      </form>
+    </ion-card-content>
+  </ion-card>
 </div>
 
 

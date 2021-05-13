@@ -1,7 +1,7 @@
-<ion-menu side="start" content-id="main-content">
+<ion-menu side="start" menuId="second" content-id="all_competitions">
   <ion-header>
     <ion-toolbar translucent>
-      <ion-title>Menu</ion-title>
+      <ion-title>Dashboard</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -18,37 +18,37 @@
   </ion-content>
 </ion-menu>
 
-<div class="ion-page" id="main-content">
+<div class="ion-page" id="all_competitions">
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Dashboard</ion-title>
+      <ion-title>All Competitions</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item *ngFor="let user of competitionData">
-        <ion-label class="label">
-          <!--<ion-button color="success" (click)=Title()>Title</ion-button>-->
-          <h2>{{user.Title}}</h2>
-          <h3>{{user.Description}}</h3>
-          <h3>{{user.AuthorName}}</h3>
-        </ion-label>
+  <ion-content fullscreen>
+      <ion-list>
+        <ion-item *ngFor="let user of competitionData">
+          <ion-label class="label">
+            <!--<ion-button color="success" (click)=Title()>Title</ion-button>-->
+            <h2>{{user.Title}}</h2>
+            <p>{{user.Description}}</p>
+            <p>{{user.AuthorName}}</p>
+          </ion-label>
 
-        <div class="item-note" item-end>
-          <ion-button color="success" [routerLink]="['/update/', user._id]">
-            <ion-icon name="create" style="zoom:1.5"></ion-icon>
-          </ion-button>
-          <ion-button color="success" (click)="removeUser(user,i)">
-            <ion-icon name="trash" style="zoom:1.5"></ion-icon>
-          </ion-button>
+          <div class="item-note" item-end>
+            <ion-button color="success" [routerLink]="['/update/', user._id]">
+              <ion-icon name="create" style="zoom:1.5"></ion-icon>
+            </ion-button>
+            <ion-button color="success" (click)="removeUser(user,i)">
+              <ion-icon name="trash" style="zoom:1.5"></ion-icon>
+            </ion-button>
 
-        </div>
-      </ion-item>
-    </ion-list>
-
+          </div>
+        </ion-item>
+      </ion-list>
   </ion-content>
+
 </div>
 
