@@ -1,0 +1,29 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+
+  <img alt="logo" src="assets/icon/download.svg">
+</ion-toolbar>
+
+<ion-content padding>
+  <form [formGroup]="credentialsofForm" (ngSubmit)="Click()">
+
+    <ion-item>
+      <ion-label color="success" position="floating">Email</ion-label>
+      <ion-input color="succcess" type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="success" position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-button fill="outline" type="submit" [disabled]="!credentialsofForm.valid">Login
+    </ion-button>
+
+  </form>
+  <h2>Don't have Account?</h2>
+  <ion-button fill="outline" (click)="register()">Register</ion-button>
+  <ion-button fill="outline" (click)="adminlogin()">Admin Login</ion-button>
+</ion-content>

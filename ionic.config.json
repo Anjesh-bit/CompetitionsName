@@ -1,0 +1,10 @@
+{
+  "name": "Competition",
+  "integrations": {
+    "capacitor": {
+      "enabled": true
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}
