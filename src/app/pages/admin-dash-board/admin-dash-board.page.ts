@@ -40,4 +40,10 @@ export class AdminDashBoardPage implements OnInit {
       });
     }
   }
+
+    changeNav(nav){
+        if(nav === 'list'){
+            this.Router.navigate(['/dashboard-inside']);
+        }
+    }
 }

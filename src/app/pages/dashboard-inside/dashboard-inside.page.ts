@@ -38,4 +38,10 @@ export class DashboardInsidePage implements OnInit {
       });
     }
   }
+
+    changeNav(nav){
+    if(nav === 'add'){
+        this.Router.navigate(['/admin-dash-board']);
+    }
+    }
 }

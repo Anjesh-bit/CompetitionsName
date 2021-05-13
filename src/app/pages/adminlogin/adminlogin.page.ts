@@ -34,7 +34,7 @@ export class AdminloginPage implements OnInit {
       console.log('after login', user);
       let role = user['role'];
       if (role == 'ADMIN') {
-        this.router.navigate(['admin-dash-board']);
+        this.router.navigate(['dashboard-inside']);
       }
     });
   }
