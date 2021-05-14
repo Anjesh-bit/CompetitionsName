@@ -11,6 +11,14 @@ export class AddCompetition {
   Description: string;
   AuthorName: string;
 }
+
+export class AddRegistration {
+  _id: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: number;
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -20,7 +28,8 @@ export class AddCompetitionServicesService {
   };
   selectedCompetition: AddCompetition;
   Competitions: AddCompetition[];
-
+  selectedRegister: AddRegistration;
+  Register: AddRegistration[];
   constructor(
     private http: HttpClient,
     private Alert: AlertController,
@@ -86,6 +95,29 @@ export class AddCompetitionServicesService {
         catchError(this.handleError<AddCompetition[]>('Delete user'))
       );
   }
+
+  //For the Register route
+  updateUserRegistration(id, user: AddRegistration): Observable<any> {
+    return this.http
+      .put('http://localhost:3000/registerUpdate/' + id, user, this.httpOptions)
+      .pipe(
+        tap((_) => {
+          console.log(`user updated:${id}`);
+          catchError(this.handleError<AddRegistration[]>('Update user'));
+        })
+      );
+  }
+  GetRegisterID(id): Observable<AddRegistration[]> {
+    return this.http
+      .get<AddRegistration[]>('http://localhost:3000/register/' + id)
+      .pipe(
+        tap((res) => {
+          console.log(`User fetched: ${id}`);
+          catchError(this.handleError<AddCompetition[]>(`Get user id=${id}`));
+        })
+      );
+  }
+
   showAlert(msg) {
     let alert = this.Alert.create({
       message: msg,

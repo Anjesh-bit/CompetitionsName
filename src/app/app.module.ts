@@ -9,6 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, RouterModule } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +17,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
-
+import { ModelForHomeComponent } from './model-for-home/model-for-home.component';
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -27,12 +28,13 @@ export function jwtOptionsFactory(storage) {
 }
 
 @NgModule({
-  declarations: [AppComponent, ModelComponent],
+  declarations: [AppComponent, ModelComponent, ModelForHomeComponent],
   entryComponents: [],
   imports: [
     IonicModule.forRoot(),
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {

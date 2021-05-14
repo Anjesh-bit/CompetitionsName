@@ -3,7 +3,7 @@
   --ion-safe-area-bottom: 22px;
 }
 ion-card {
-  height: 475px;
+  height: 600px;
 }
 
 .logout {
@@ -36,4 +36,7 @@ ion-header {
 
   width: 95%;
   margin-left: 5px;
+}
+.navbar {
+  cursor: pointer;
 }

@@ -2,7 +2,10 @@ import { CompetitionAuthService } from '../services/competition-auth.service';
 import { ModelComponent } from '../model/model.component';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-
+import { MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { NgZone } from '@angular/core';
+import { ModelForHomeComponent } from '../model-for-home/model-for-home.component';
 import {
   InAppBrowser,
   InAppBrowserOptions,
@@ -17,7 +20,10 @@ export class ButtonsPage implements OnInit {
   constructor(
     private modelctrl: ModalController,
     private Inapp: InAppBrowser,
-    private CompeteAuth: CompetitionAuthService
+    private CompeteAuth: CompetitionAuthService,
+    private menu: MenuController,
+    private Router: Router,
+    private Zone: NgZone
   ) {}
 
   ngOnInit() {}
@@ -82,7 +88,22 @@ export class ButtonsPage implements OnInit {
     );
     home.show();
   }
+
   logout() {
     this.CompeteAuth.logout();
   }
+  async Account() {
+    const modal = await this.modelctrl.create({
+      component: ModelForHomeComponent,
+      componentProps: {
+        FirstName: 'First Name',
+        LastName: 'Last Name',
+        Email: 'Email',
+        Password: 'Password',
+      },
+      cssClass: 'mymodal',
+    });
+    return await modal.present();
+  }
+  Paas() {}
 }

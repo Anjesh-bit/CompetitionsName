@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, NgZone } from '@angular/core';
-import {MenuController} from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-admin-dash-board',
@@ -37,16 +37,18 @@ export class AdminDashBoardPage implements OnInit {
       ).subscribe((res) => {
         this.Zone.run(() => {
           this.DashBoardCredentials.reset();
-          this.Router.navigate(['dashboard-inside', {item: res}]);
+
+          this.Router.navigate(['dashboard-inside', { item: res }]);
+          console.log('item', { item: res });
         });
       });
     }
   }
 
-    changeNav(nav){
-        if(nav === 'list'){
-            this.menu.close('first');
-            this.Router.navigate(['dashboard-inside']);
-        }
+  changeNav(nav) {
+    if (nav === 'list') {
+      this.menu.close('first');
+      this.Router.navigate(['dashboard-inside']);
     }
+  }
 }
