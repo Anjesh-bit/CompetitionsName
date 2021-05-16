@@ -17,6 +17,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+
 import { ModelForHomeComponent } from './model-for-home/model-for-home.component';
 export function jwtOptionsFactory(storage) {
   return {
@@ -35,6 +36,7 @@ export function jwtOptionsFactory(storage) {
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {

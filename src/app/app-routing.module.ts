@@ -55,6 +55,11 @@ const routes: Routes = [
         (m) => m.DashboardInsidePageModule
       ),
   },
+  {
+    path: 'update/:id',
+    loadChildren: () =>
+      import('./pages/update/update.module').then((m) => m.UpdatePageModule),
+  },
 ];
 
 @NgModule({

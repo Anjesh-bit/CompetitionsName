@@ -28,27 +28,44 @@
     </ion-toolbar>
   </ion-header>
   <ion-content fullscreen>
-      <ion-list>
-        <ion-item *ngFor="let user of competitionData">
-          <ion-label class="label">
-            <!--<ion-button color="success" (click)=Title()>Title</ion-button>-->
+    <!-- -->
+    <ion-list *ngFor="let user of rows">
+
+      <ion-item-sliding>
+        <ion-item>
+          <ion-label>
             <h2>{{user.Title}}</h2>
-            <p>{{user.Description}}</p>
-            <p>{{user.AuthorName}}</p>
+
+            <!--<ion-button color="success" (click)=Title()>Title</ion-button>-->
+
+            <h2>{{user.Description}}</h2>
+
+
+            <h2>{{user.AuthorName}}</h2>
           </ion-label>
 
-          <div class="item-note" item-end>
-            <ion-button color="success" [routerLink]="['/update/', user._id]">
-              <ion-icon name="create" style="zoom:1.5"></ion-icon>
-            </ion-button>
-            <ion-button color="success" (click)="removeUser(user,i)">
-              <ion-icon name="trash" style="zoom:1.5"></ion-icon>
-            </ion-button>
 
-          </div>
+
+
         </ion-item>
-      </ion-list>
+
+
+
+        <ion-item-options side="start">
+          <ion-item-option color="danger" expandable="true">
+            <ion-icon (click)="removeUser(user,user.length)" name="trash" size="large"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        <ion-item lines="none">
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="success" expandable="true">
+            <ion-icon (click)="Navigate(user)" name="create" size="large"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
   </ion-content>
 
 </div>
-
